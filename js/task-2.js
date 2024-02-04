@@ -28,14 +28,27 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-console.log(gallery);
 
-images.forEach(el => {
+// ============ First variant / incorect - more that one add
+// const gallery = document.querySelector(".gallery");
+// images.forEach(el => {
+//   const item = document.createElement("li");
+//     gallery.append(item);
+//   const img = document.createElement("img");
+//   item.append(img);
+//   img.setAttribute("src", `${el.url}`);
+//   img.setAttribute("alt", `${el.alt}`);
+// });
+
+// ============ New variant / 
+const gallery = document.querySelector(".gallery");
+const galleryItems = images.map(el => {
   const item = document.createElement("li");
-    gallery.append(item);
   const img = document.createElement("img");
-  item.append(img);
   img.setAttribute("src", `${el.url}`);
   img.setAttribute("alt", `${el.alt}`);
-});
+  item.append(img);
+  return item
+})
+
+gallery.append(...galleryItems)
