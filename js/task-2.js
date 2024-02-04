@@ -38,6 +38,4 @@ images.forEach(el => {
   item.append(img);
   img.setAttribute("src", `${el.url}`);
   img.setAttribute("alt", `${el.alt}`);
-  img.classList.add("imgs");
-
 });
